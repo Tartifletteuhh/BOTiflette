@@ -1,7 +1,8 @@
 const Discord = require('discord.js')
 const bot = new Discord.Client()
-
+bot.login('NzM1NDc3MDUwNTc5NjE1NzU0.Xxg0YQ.haiX_5QZUKlnRTC-tRox5qRZGyM')
 const PREFIX = "!"
+
 const facteur = 2
 
 bot.on('ready', function() {
@@ -110,4 +111,12 @@ bot.on('message', message => {
     }
 })
 
-bot.login('NzM1NDc3MDUwNTc5NjE1NzU0.Xxg0YQ.haiX_5QZUKlnRTC-tRox5qRZGyM')
+bot.on('message', message => {
+    if (message.content === "embed"){
+        const exampleEmbed = {embed: {
+            color: 3447003,
+            description: "c'est pas compliqué bordel !"
+          }}
+        message.channel.send(exampleEmbed);
+    }
+})
