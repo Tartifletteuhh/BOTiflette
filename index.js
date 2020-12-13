@@ -111,12 +111,11 @@ bot.on('message', message => {
     }
 })
 
+const exampleEmbed = new Discord.MessageEmbed()
+    .setDescription('Hey !')
+
 bot.on('message', message => {
     if (message.content === "embed"){
-        const exampleEmbed = {embed: {
-            color: 3447003,
-            description: "c'est pas compliqué bordel !"
-          }}
         message.channel.send(exampleEmbed);
     }
 })
