@@ -1,9 +1,15 @@
 const Discord = require('discord.js')
+const pronote = require('pronote-api')
 const bot = new Discord.Client()
 bot.login('NzM1NDc3MDUwNTc5NjE1NzU0.Xxg0YQ.haiX_5QZUKlnRTC-tRox5qRZGyM')
 const PREFIX = "!"
 
 const facteur = 2
+const url = 'https://0880021v.index-education.net/pronote/'
+const username = 'nathanael.claudon'
+const password = 'nanate88'
+const cas = 'ac-nancy-metz'
+a=Math.floor(Math.random() * facteur)
 
 bot.on('ready', function() {
     console.log("prêt !")
@@ -12,18 +18,13 @@ bot.on('ready', () => {
     bot.user.setPresence({ activity: { name: 'Franck', type: 'WATCHING' }, status: 'dnd' })
 })
 
-bot.on('message', message => {
+bot.on('message', message =>{
     if(message.content[0] === PREFIX) {
         if(message.content === '!hello') {
             message.channel.send('world !')
             console.log("world !")
         }
     }
-})
-
-a=Math.floor(Math.random() * facteur)
-
-bot.on('message', message =>{
     if(message.content.toLowerCase() === "oui") {
         if(message.channel.id === "623628342528049153") {
             return
@@ -96,9 +97,6 @@ bot.on('message', message =>{
             console.log("dene")
         }  
     }
-})
-
-bot.on('message', message => {
     if (message.content) {
         if(message.channel.id === "623628342528049153") {
             return
@@ -111,11 +109,41 @@ bot.on('message', message => {
     }
 })
 
-const exampleEmbed = new Discord.MessageEmbed()
-    .setDescription('Hey !')
+async function main()
+{
+    const session = await pronote.login(url, username, password, cas)
+    const timetable = await session.timetable()
+    const marks = await session.marks()
 
-bot.on('message', message => {
-    if (message.content === "embed"){
-        message.channel.send(exampleEmbed);
+    const exampleEmbed = new Discord.MessageEmbed()
+        .setColor('#0099ff')
+        .setTitle(`Il reste ${timetable.length} cours aujourd'hui.`)
+        //.setURL('https://discord.js.org/')
+        .setAuthor(`${session.user.name}, ${session.user.studentClass.name}`/*, 'https://i.imgur.com/wSTFkRM.png', 'https://discord.js.org'*/)
+        .setDescription(`${marks.averages.student} de moyenne générale actuellement.`)
+        //.setThumbnail('https://i.imgur.com/wSTFkRM.png')
+        /*.addFields(
+            { name: 'Regular field title', value: 'Some value here' },
+            { name: '\u200B', value: '\u200B' },
+            { name: 'Inline field title', value: 'Some value here', inline: true },
+            { name: 'Inline field title', value: 'Some value here', inline: true },
+        )*/
+        //.addField('Inline field title', 'Some value here', true)
+        //.setImage('https://i.imgur.com/wSTFkRM.png')
+        //.setTimestamp()
+        //.setFooter('Some footer text here', 'https://i.imgur.com/wSTFkRM.png');
+
+    bot.on('message', message => {
+        if (message.content === "embed"){
+            message.channel.send(exampleEmbed);
+        }
+    })
+}
+
+main().catch(err => {
+    if (err.code === pronote.errors.WRONG_CREDENTIALS.code) {
+        console.error('Mauvais identifiants');    
+    } else {
+        console.error(err);
     }
-})
+});

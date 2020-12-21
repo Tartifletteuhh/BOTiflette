@@ -1,16 +1,15 @@
 {
   "dependencies": {
-    "discord.js": "^12.4.1"
+    "discord.js": "^12.4.1",
+    "pronote-api": "^2.3.0"
   },
   "name": "botiflette",
   "version": "1.0.0",
   "description": "le bot des réactions",
   "main": "index.js",
-  "devDependencies": {},
   "scripts": {
     "start": "node index.js"
   },
   "author": "Tartiflette",
   "license": "ISC"
 }
-
