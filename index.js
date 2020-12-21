@@ -134,7 +134,7 @@ async function main()
         //.setFooter('Some footer text here', 'https://i.imgur.com/wSTFkRM.png');
 
     bot.on('message', message => {
-        if (message.content === "embed"){
+        if (message.content.toLocaleLowerCase() === "pronote"){
             message.channel.send(exampleEmbed);
         }
     })
