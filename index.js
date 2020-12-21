@@ -1,7 +1,7 @@
 const Discord = require('discord.js')
 const pronote = require('pronote-api')
-const bot = new Discord.Client()
-bot.login('NzM1NDc3MDUwNTc5NjE1NzU0.Xxg0YQ.haiX_5QZUKlnRTC-tRox5qRZGyM')
+const client = new Discord.Client()
+client.login('NzM1NDc3MDUwNTc5NjE1NzU0.Xxg0YQ.haiX_5QZUKlnRTC-tRox5qRZGyM')
 const PREFIX = "!"
 
 const facteur = 2
@@ -11,14 +11,14 @@ const password = 'nanate88'
 const cas = 'ac-nancy-metz'
 a=Math.floor(Math.random() * facteur)
 
-bot.on('ready', function() {
+client.on('ready', function() {
     console.log("prêt !")
 })
-bot.on('ready', () => {
-    bot.user.setPresence({ activity: { name: 'Franck', type: 'WATCHING' }, status: 'dnd' })
+client.on('ready', () => {
+    client.user.setPresence({ activity: { name: 'Franck', type: 'WATCHING' }, status: 'dnd' })
 })
 
-bot.on('message', message =>{
+client.on('message', message =>{
     if(message.content[0] === PREFIX) {
         if(message.content === '!hello') {
             message.channel.send('world !')
@@ -115,8 +115,8 @@ async function main()
     const timetable = await session.timetable()
     const marks = await session.marks()
     
-    const exampleEmbed = new Discord.MessageEmbed()
-        .setColor('#0099ff')
+    const pronoteEmbed = new Discord.MessageEmbed()
+        //.setColor('#0099ff')
         .setTitle(`Tu as ${timetable.length} heures de cours aujourd'hui.`)
         //.setURL('https://discord.js.org/')
         .setAuthor(`${session.user.name}, ${session.user.studentClass.name}`/*, 'https://i.imgur.com/wSTFkRM.png', 'https://discord.js.org'*/)
@@ -133,12 +133,20 @@ async function main()
         //.setTimestamp()
         //.setFooter('Some footer text here', 'https://i.imgur.com/wSTFkRM.png');
 
-    bot.on('message', message => {
+    client.on('message', message => {
         if (message.content.toLocaleLowerCase() === "pronote"){
-            message.channel.send(exampleEmbed);
+            message.channel.send(pronoteEmbed);
         }
     })
-}
+
+    let oldmoyenne 
+    if (marks.averages.student !== oldmoyenne){
+        const moyenneEmbed = new Discord.MessageEmbed()
+            .setTitle(`Moyenne mise à jour : ${marks.averages.student}`)
+        client.channels.cache.get('722748727764320320').send(moyenneEmbed)
+        oldmoyenne === marks.averages.student
+    }  
+} 
 
 main().catch(err => {
     if (err.code === pronote.errors.WRONG_CREDENTIALS.code) {
