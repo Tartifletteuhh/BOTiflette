@@ -114,10 +114,10 @@ async function main()
     const session = await pronote.login(url, username, password, cas)
     const timetable = await session.timetable()
     const marks = await session.marks()
-
+    
     const exampleEmbed = new Discord.MessageEmbed()
         .setColor('#0099ff')
-        .setTitle(`Il reste ${timetable.length} cours aujourd'hui.`)
+        .setTitle(`Tu as ${timetable.length} heures de cours aujourd'hui.`)
         //.setURL('https://discord.js.org/')
         .setAuthor(`${session.user.name}, ${session.user.studentClass.name}`/*, 'https://i.imgur.com/wSTFkRM.png', 'https://discord.js.org'*/)
         .setDescription(`${marks.averages.student} de moyenne générale actuellement.`)
