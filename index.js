@@ -144,7 +144,7 @@ async function main()
         }
         obj.testVar = marks.averages.student
     }
-    setInterval(infiniteLoop, 1000)
+    //setInterval(infiniteLoop, 1000)
 } 
 
 main().catch(err => {
