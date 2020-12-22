@@ -4,12 +4,22 @@ const client = new Discord.Client()
 client.login('NzM1NDc3MDUwNTc5NjE1NzU0.Xxg0YQ.haiX_5QZUKlnRTC-tRox5qRZGyM')
 const PREFIX = "!"
 
+
+
+
+
 const facteur = 2
 const url = 'https://0880021v.index-education.net/pronote/'
 const username = 'nathanael.claudon'
 const password = 'nanate88'
 const cas = 'ac-nancy-metz'
-a=Math.floor(Math.random() * facteur)
+let a=Math.floor(Math.random() * facteur)
+let oldMoyenne = 0
+
+
+
+
+
 
 client.on('ready', function() {
     console.log("prêt !")
@@ -17,6 +27,12 @@ client.on('ready', function() {
 client.on('ready', () => {
     client.user.setPresence({ activity: { name: 'Franck', type: 'WATCHING' }, status: 'dnd' })
 })
+
+
+
+
+
+
 
 client.on('message', message =>{
     if(message.content[0] === PREFIX) {
@@ -97,6 +113,9 @@ client.on('message', message =>{
             console.log("dene")
         }  
     }
+
+
+
     if (message.content) {
         if(message.channel.id === "623628342528049153") {
             return
@@ -109,43 +128,57 @@ client.on('message', message =>{
     }
 })
 
+
+
+
+
+
+
+
+
+
 async function main()
 {
     const session = await pronote.login(url, username, password, cas)
     const timetable = await session.timetable()
     const marks = await session.marks()
     
+
+
+
+
+
     const pronoteEmbed = new Discord.MessageEmbed()
         .setTitle(`Tu as ${timetable.length} heures de cours aujourd'hui.`)
         .setAuthor(`${session.user.name}, ${session.user.studentClass.name}`)
         .setDescription(`${marks.averages.student} de moyenne générale actuellement.`)
 
     client.on('message', message => {
+        if(message.guild.id !== "722748727764320317") {
+            return
+        }
         if (message.content.toLocaleLowerCase() === "pronote"){
             message.channel.send(pronoteEmbed);
         }
     })
 
-    function infiniteLoop() {
-        var obj = {
-            value: '',
-            letMeKnow() {
-                const moyenneEmbed = new Discord.MessageEmbed()
-                    .setTitle(`Moyenne mise à jour : ${this.testVar}`)
-                client.channels.cache.get('722748727764320320').send(moyenneEmbed)
-            },
-            get testVar() {
-            return this.value;
-            },
-            set testVar(value) {
-            this.value = value;
-            this.letMeKnow();
-            }
-        }
-        obj.testVar = marks.averages.student
+
+
+    
+    
+    if(marks.averages.student !== oldMoyenne) {
+        const moyenneEmbed = new Discord.MessageEmbed()
+            .setTitle(`Moyenne mise à jour : ${marks.averages.student}`)
+        client.channels.cache.get('722748727764320320').send(moyenneEmbed)
+        oldMoyenne = marks.averages.student
     }
-    //setInterval(infiniteLoop, 1000)
-} 
+}
+
+
+
+
+
+
 
 main().catch(err => {
     if (err.code === pronote.errors.WRONG_CREDENTIALS.code) {
