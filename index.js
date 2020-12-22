@@ -154,10 +154,10 @@ async function main()
         .setDescription(`${marks.averages.student} de moyenne générale actuellement.`)
 
     client.on('message', message => {
-        if(message.guild.id !== "722748727764320317") {
-            return
-        }
         if (message.content.toLocaleLowerCase() === "pronote"){
+            if (message.guild.id !== "722748727764320317") {
+                return
+            }
             message.channel.send(pronoteEmbed);
         }
     })
@@ -169,7 +169,7 @@ async function main()
     if(marks.averages.student !== oldMoyenne) {
         const moyenneEmbed = new Discord.MessageEmbed()
             .setTitle(`Moyenne mise à jour : ${marks.averages.student}`)
-        client.channels.cache.get('722748727764320320').send(moyenneEmbed)
+        client.users.cache.get('319929897021865985').send(moyenneEmbed)
         oldMoyenne = marks.averages.student
     }
 }
