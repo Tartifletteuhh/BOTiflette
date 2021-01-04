@@ -170,7 +170,8 @@ async function main()
     if(marks.averages.student !== oldMoyenne) {
         const moyenneEmbed = new Discord.MessageEmbed()
             .setTitle(`Moyenne mise à jour : ${marks.averages.student}`)
-        client.users.cache.get('319929897021865985').send(moyenneEmbed)
+        client.channels.cache.get('722748727764320320').send(moyenneEmbed)
+        //client.users.cache.get('319929897021865985').send("fdzefzf")
         oldMoyenne = marks.averages.student
     }
 }
@@ -188,6 +189,7 @@ main().catch(err => {
     }
 });
 }
+bouclePronote()
 setInterval(bouclePronote, 3600000)
 
 
