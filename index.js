@@ -136,10 +136,11 @@ client.on('message', message =>{
 
 
 
-
+function bouclePronote() {
 async function main()
 {
-    const session = await pronote.login(url, username, password, cas)
+    
+    const session = await pronote.login(url, username, password, cas) 
     const timetable = await session.timetable()
     const marks = await session.marks()
     
@@ -179,7 +180,6 @@ async function main()
 
 
 
-
 main().catch(err => {
     if (err.code === pronote.errors.WRONG_CREDENTIALS.code) {
         console.error('Mauvais identifiants');    
@@ -187,4 +187,13 @@ main().catch(err => {
         console.error(err);
     }
 });
+}
+setInterval(bouclePronote, 3600000)
+
+
+
+
+
+
+
 
