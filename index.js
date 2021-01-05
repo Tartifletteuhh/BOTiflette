@@ -133,12 +133,14 @@ client.on('message', message =>{
 
 
 async function main(){
-    //async function bouclePronote () {
+    
     const session = await pronote.login(url, username, password, cas) 
     session.setKeepAlive(true)
-    //return session
-    //}
-    //setInterval(bouclePronote, 3600000)
+    function bouclePronote () {
+        session.setKeepAlive(false)
+        session.setKeepAlive(true)
+    }
+    setInterval(bouclePronote, 3600000)
 
     const timetable = await session.timetable()
     const marks = await session.marks()
@@ -165,7 +167,7 @@ async function main(){
         const moyenneEmbed = new Discord.MessageEmbed()
             .setTitle(`Moyenne mise à jour : ${marks.averages.student}`)
         client.channels.cache.get('722748727764320320').send(moyenneEmbed)
-        client.users.cache.get('319929897021865985').send(moyenneEmbed);
+        //client.users.cache.get('319929897021865985').send(moyenneEmbed);
         oldMoyenne = marks.averages.student
     }
 
