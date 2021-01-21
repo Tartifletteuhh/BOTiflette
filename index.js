@@ -13,7 +13,7 @@ const url = 'https://0880021v.index-education.net/pronote/'
 const username = 'nathanael.claudon'
 const password = 'nanate88'
 const cas = 'ac-nancy-metz'
-let a=Math.floor(Math.random() * facteur)
+let a=1
 let oldMoyenne = 0
 
 
