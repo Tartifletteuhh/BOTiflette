@@ -112,16 +112,16 @@ client.on('message', message =>{
             message.channel.send('dene')
             console.log("dene")
         }  
-    }/*
+    }
     if(message.content.toLowerCase() === "lol") {
         if(message.channel.id === "623628342528049153") {
             return
         }
         if(a === 1){
-            message.channel.send('lol')
-            console.log("lol")
+            message.channel.send('ita')
+            console.log("ita")
         }  
-    }*/
+    }
 
 
 
