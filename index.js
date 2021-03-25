@@ -39,8 +39,7 @@ function LaNoblesseGénéral() {
 
 
 client.on('message', message =>{
-    var str = message.content.toLowerCase;
-    var res = str.split(" ");
+    var res = message.content.toLowerCase().split(" ");
     var mot1 = res[res.length - 1]
     var mot2 = res[res.length - 2]
     if(message.content[0] === PREFIX) {
@@ -50,49 +49,49 @@ client.on('message', message =>{
         }
     }
     if(mot1 === "oui"|| mot2 === "oui") {
-        LaNoblesseGénéral()
+        //LaNoblesseGénéral
         if(a === 1){
             message.channel.send('stiti')
             console.log("stiti")
         }
     }
     if(mot1 === "non"|| mot2 === "non") {
-        LaNoblesseGénéral
+        //LaNoblesseGénéral
         if(a === 1){
             message.channel.send('si')
             console.log("si")
         }
     }
     if(mot1 === "nan"|| mot2 === "nan") {
-        LaNoblesseGénéral
+        //LaNoblesseGénéral
         if(a === 1){
             message.channel.send('cy')
             console.log("cy")
         }
     }
     if(mot1 === "quoi"|| mot2 === "quoi") {
-        LaNoblesseGénéral
+        //LaNoblesseGénéral
         if(a === 1){
             message.channel.send('feur')
             console.log("feur")
         }
     }
     if(mot1 === "comment"|| mot2 === "comment") {
-        LaNoblesseGénéral
+        //LaNoblesseGénéral
         if(a === 1){
             message.channel.send('dent')
             console.log("dent")
         }  
     }
     if(mot1 === "wesh"|| mot2 === "wesh") {
-        LaNoblesseGénéral
+        //LaNoblesseGénéral
         if(a === 1){
             message.channel.send('dene')
             console.log("dene")
         }  
     }
     if(mot1 === "lol"|| mot2 === "lol") {
-        LaNoblesseGénéral
+        //LaNoblesseGénéral
         if(a === 1){
             message.channel.send('ita')
             console.log("ita")
