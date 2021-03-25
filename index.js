@@ -39,7 +39,7 @@ function LaNoblesseGénéral() {
 
 
 client.on('message', message =>{
-    var str = message.content;
+    var str = message.content.toLowerCase;
     var res = str.split(" ");
     var mot1 = res[res.length - 1]
     var mot2 = res[res.length - 2]
