@@ -34,57 +34,56 @@ client.on('message', message =>{
         return
     }*/
     var res = message.content.toLowerCase().split(" ");
-    var mot1 = res[res.length - 1]
-    var mot2 = res[res.length - 2]
+    let mot = [res[res.length - 1],res[res.length - 2]]
     if(message.content[0] === PREFIX) {
         if(message.content === '!hello') {
             message.channel.send('world !')
             console.log("world !")
         }
     }
-    if(mot1 === "oui"|| mot2 === "oui") {
+    if(mot === "oui") {
         
         if(a === 1){
             message.channel.send('stiti')
             console.log("stiti")
         }
     }
-    if(mot1 === "non"|| mot2 === "non") {
+    if(mot === "non") {
         
         if(a === 1){
             message.channel.send('si')
             console.log("si")
         }
     }
-    if(mot1 === "nan"|| mot2 === "nan") {
+    if(mot === "nan") {
         
         if(a === 1){
             message.channel.send('cy')
             console.log("cy")
         }
     }
-    if(mot1 === "quoi"|| mot2 === "quoi") {
+    if(mot === "quoi") {
      
         if(a === 1){
             message.channel.send('feur')
             console.log("feur")
         }
     }
-    if(mot1 === "comment"|| mot2 === "comment") {
+    if(mot === "comment") {
      
         if(a === 1){
             message.channel.send('dent')
             console.log("dent")
         }  
     }
-    if(mot1 === "wesh"|| mot2 === "wesh") {
+    if(mot === "wesh") {
   
         if(a === 1){
             message.channel.send('dene')
             console.log("dene")
         }  
     }
-    if(mot1 === "lol"|| mot2 === "lol") {
+    if(mot === "lol") {
      
         if(a === 1){
             message.channel.send('ita')
@@ -96,7 +95,7 @@ client.on('message', message =>{
         message.channel.send("https://tenor.com/view/one-piece-monkey-d-luffy-straw-hat-luffy-zombie-rise-of-the-dead-gif-17305551")
     }
 
-    if (message.content) {
+    if (message.content) {                       //emote camion sur la noblesse sauf sur le général
         if(message.channel.id === "623628342528049153") {
             return
         }
