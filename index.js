@@ -13,7 +13,7 @@ const url = 'https://0880021v.index-education.net/pronote/'
 const username = 'nathanael.claudon'
 const password = 'nanate88'
 const cas = 'ac-nancy-metz'
-let a=1
+
 let oldMoyenne = 0
 
 
@@ -30,9 +30,12 @@ client.on('ready', () => {
 
 
 client.on('message', message =>{
+    
     /*if(message.channel.id === "623628342528049153") {
         return
     }*/
+    let a=Math.floor(Math.random() * 10)
+    let b=4
     var res = message.content.toLowerCase().split(" ");
     var mot = [res[res.length - 2],res[res.length - 1]]
     var trigger = ["oui","non","nan","quoi","comment","lol","wesh"]
@@ -53,49 +56,49 @@ client.on('message', message =>{
     }
     if(mot[0] === "oui" || mot[1] === "oui") {
 
-        if(a === 1){
+        if(a < b){
             message.channel.send('stiti')
             console.log("stiti")
         }
     }
     if(mot[0] === "non" || mot[1] === "non") {
         
-        if(a === 1){
+        if(a < b){
             message.channel.send('si')
             console.log("si")
         }
     }
     if(mot[0] === "nan" || mot[1] === "nan") {
         
-        if(a === 1){
+        if(a < b){
             message.channel.send('cy')
             console.log("cy")
         }
     }
     if(mot[0] === "quoi" || mot[1] === "quoi") {
      
-        if(a === 1){
+        if(a < b){
             message.channel.send('feur')
             console.log("feur")
         }
     }
     if(mot[0] === "comment" || mot[1] === "comment") {
      
-        if(a === 1){
+        if(a < b){
             message.channel.send('dent')
             console.log("dent")
         }  
     }
     if(mot[0] === "wesh" || mot[1] === "wesh") {
   
-        if(a === 1){
+        if(a < b){
             message.channel.send('dene')
             console.log("dene")
         }  
     }
     if(mot[0] === "lol" || mot[1] === "lol") {
      
-        if(a === 1){
+        if(a < b){
             message.channel.send('ita')
             console.log("ita")
         }  
