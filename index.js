@@ -105,7 +105,9 @@ client.on('message', message =>{
     }
 
     if(message.content.toLowerCase().includes("mort")) {
-        message.channel.send("https://tenor.com/view/one-piece-monkey-d-luffy-straw-hat-luffy-zombie-rise-of-the-dead-gif-17305551")
+        if(a < b){
+            message.channel.send("https://tenor.com/view/one-piece-monkey-d-luffy-straw-hat-luffy-zombie-rise-of-the-dead-gif-17305551")
+        }
     }
 
     if (message.content) {                       //emote camion sur la noblesse sauf sur le général
