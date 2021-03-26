@@ -34,56 +34,57 @@ client.on('message', message =>{
         return
     }*/
     var res = message.content.toLowerCase().split(" ");
-    let mot = [res[res.length - 1],res[res.length - 2]]
+    var mot = [res[res.length - 2],res[res.length - 1]]
+    
     if(message.content[0] === PREFIX) {
         if(message.content === '!hello') {
             message.channel.send('world !')
             console.log("world !")
         }
     }
-    if(mot === "oui") {
-        
+    if(mot[0] === "oui" || mot[1] === "oui") {
+
         if(a === 1){
             message.channel.send('stiti')
             console.log("stiti")
         }
     }
-    if(mot === "non") {
+    if(mot[0] === "non" || mot[1] === "non") {
         
         if(a === 1){
             message.channel.send('si')
             console.log("si")
         }
     }
-    if(mot === "nan") {
+    if(mot[0] === "nan" || mot[1] === "nan") {
         
         if(a === 1){
             message.channel.send('cy')
             console.log("cy")
         }
     }
-    if(mot === "quoi") {
+    if(mot[0] === "quoi" || mot[1] === "quoi") {
      
         if(a === 1){
             message.channel.send('feur')
             console.log("feur")
         }
     }
-    if(mot === "comment") {
+    if(mot[0] === "comment" || mot[1] === "comment") {
      
         if(a === 1){
             message.channel.send('dent')
             console.log("dent")
         }  
     }
-    if(mot === "wesh") {
+    if(mot[0] === "wesh" || mot[1] === "wesh") {
   
         if(a === 1){
             message.channel.send('dene')
             console.log("dene")
         }  
     }
-    if(mot === "lol") {
+    if(mot[0] === "lol" || mot[1] === "lol") {
      
         if(a === 1){
             message.channel.send('ita')
