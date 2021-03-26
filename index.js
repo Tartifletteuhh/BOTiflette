@@ -35,6 +35,15 @@ client.on('message', message =>{
     }*/
     var res = message.content.toLowerCase().split(" ");
     var mot = [res[res.length - 2],res[res.length - 1]]
+    var trigger = ["oui","non","nan","quoi","comment","lol","wesh"]
+    function isLetter(c) {
+        return c.toLowerCase() != c.toUpperCase();
+    }
+    if(isLetter(mot[1]) === true && !trigger.includes(mot[1])) {
+        return
+    }
+
+
     
     if(message.content[0] === PREFIX) {
         if(message.content === '!hello') {
@@ -106,4 +115,6 @@ client.on('message', message =>{
         const reactionEmoji = message.guild.emojis.cache.find(emoji => emoji.name === 'Camion')
         message.react(reactionEmoji)
     }
+
+
 })
