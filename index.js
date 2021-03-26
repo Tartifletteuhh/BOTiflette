@@ -13,7 +13,6 @@ const url = 'https://0880021v.index-education.net/pronote/'
 const username = 'nathanael.claudon'
 const password = 'nanate88'
 const cas = 'ac-nancy-metz'
-
 let oldMoyenne = 0
 
 
@@ -30,24 +29,34 @@ client.on('ready', () => {
 
 
 client.on('message', message =>{
-    
+        
     /*if(message.channel.id === "623628342528049153") {
         return
     }*/
+
     let a=Math.floor(Math.random() * 10)
-    let b=4
-    var res = message.content.toLowerCase().split(" ");
-    var mot = [res[res.length - 2],res[res.length - 1]]
+    let b=7
+
+    var res = message.content
+    res = res.replaceAll('*','')
+    res = res.replaceAll('~','')
+    res = res.replaceAll('_','')
+    res = res.replaceAll('|','')
+    res = res.replaceAll('`','')
+
+    var rip = res.toLowerCase().split(" ");
+    var mot = [rip[rip.length - 2],rip[rip.length - 1]]
+
     var trigger = ["oui","non","nan","quoi","comment","lol","wesh"]
+
     function isLetter(c) {
         return c.toLowerCase() != c.toUpperCase();
     }
+
     if(isLetter(mot[1]) === true && !trigger.includes(mot[1])) {
         return
     }
 
-
-    
     if(message.content[0] === PREFIX) {
         if(message.content === '!hello') {
             message.channel.send('world !')
