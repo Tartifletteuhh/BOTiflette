@@ -6,27 +6,31 @@ const PREFIX = "!"
 
 
 
-
-
 const facteur = 2
 const url = 'https://0880021v.index-education.net/pronote/'
 const username = 'nathanael.claudon'
 const password = 'nanate88'
 const cas = 'ac-nancy-metz'
 let oldMoyenne = 0
-
-let b=6
-
-
-
-
-
+var b
 
 client.on('ready', function() {
     console.log("prêt !")
 })
 client.on('ready', () => {
     client.user.setPresence({ activity: { name: 'One Piece', type: 'WATCHING' }, status: 'dnd' })
+})
+
+client.on('message', message => {
+
+    var res = message.content
+    var rip = res.toLowerCase().split(" ");
+
+    if(rip[0].toLowerCase() === "!sethumour") {
+        b = rip[1]
+        console.log(b)
+    }
+
 })
 
 
@@ -36,7 +40,7 @@ client.on('message', message =>{
         return
     }*/
 
-    let a=Math.floor(Math.random() * 10)
+    let a=Math.floor(Math.random() * 100)
 
     var res = message.content
     /*res = res.replaceAll('*','')
@@ -112,12 +116,6 @@ client.on('message', message =>{
             message.channel.send('ita')
             console.log("ita")
         }  
-    }
-
-    if(message.content.toLowerCase().includes("mort")) {
-        if(a < b){
-            message.channel.send("https://tenor.com/view/one-piece-monkey-d-luffy-straw-hat-luffy-zombie-rise-of-the-dead-gif-17305551")
-        }
     }
 })
 
