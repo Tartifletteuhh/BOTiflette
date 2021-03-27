@@ -15,6 +15,8 @@ const password = 'nanate88'
 const cas = 'ac-nancy-metz'
 let oldMoyenne = 0
 
+let b=6
+
 
 
 
@@ -35,14 +37,13 @@ client.on('message', message =>{
     }*/
 
     let a=Math.floor(Math.random() * 10)
-    let b=7
 
     var res = message.content
-    res = res.replaceAll('*','')
+    /*res = res.replaceAll('*','')
     res = res.replaceAll('~','')
     res = res.replaceAll('_','')
     res = res.replaceAll('|','')
-    res = res.replaceAll('`','')
+    res = res.replaceAll('`','')*/
 
     var rip = res.toLowerCase().split(" ");
     var mot = [rip[rip.length - 2],rip[rip.length - 1]]
@@ -118,6 +119,9 @@ client.on('message', message =>{
             message.channel.send("https://tenor.com/view/one-piece-monkey-d-luffy-straw-hat-luffy-zombie-rise-of-the-dead-gif-17305551")
         }
     }
+})
+
+client.on('message', message =>{
 
     if (message.content) {                       //emote camion sur la noblesse sauf sur le général
         if(message.channel.id === "623628342528049153") {
@@ -129,6 +133,15 @@ client.on('message', message =>{
         const reactionEmoji = message.guild.emojis.cache.find(emoji => emoji.name === 'Camion')
         message.react(reactionEmoji)
     }
+})
 
+client.on('message', message =>{
 
+    let a=Math.floor(Math.random() * 10)
+
+    if(message.content.toLowerCase().includes("mort")) {
+        if(a < b){
+            message.channel.send("https://tenor.com/view/one-piece-monkey-d-luffy-straw-hat-luffy-zombie-rise-of-the-dead-gif-17305551")
+        }
+    }
 })
