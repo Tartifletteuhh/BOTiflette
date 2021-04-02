@@ -12,7 +12,7 @@ const username = 'nathanael.claudon'
 const password = 'nanate88'
 const cas = 'ac-nancy-metz'
 let oldMoyenne = 0
-var b
+var b = 100
 
 client.on('ready', function() {
     console.log("prêt !")
@@ -28,7 +28,17 @@ client.on('message', message => {
 
     if(rip[0].toLowerCase() === "!sethumour") {
         b = rip[1]
-        console.log(b)
+        message.channel.send(
+            exampleEmbed = new Discord.MessageEmbed()
+            .setColor('#FFC0CB')
+            .setTitle(`Nouvelle valeur : ${b}`))
+    }
+
+    if(rip[0].toLowerCase() === "!varhumour") {
+        message.channel.send(
+            exampleEmbed = new Discord.MessageEmbed()
+            .setColor('#FFC0CB')
+            .setTitle(`Mon humour est de valeur : ${b}`))
     }
 
 })
