@@ -26,12 +26,15 @@ client.on('message', message => {
     var res = message.content
     var rip = res.toLowerCase().split(" ");
 
+    if (message.author.id !== '319929897021865985') return
+
     if(rip[0].toLowerCase() === "!sethumour") {
         b = rip[1]
         message.channel.send(
             exampleEmbed = new Discord.MessageEmbed()
             .setColor('#FFC0CB')
             .setTitle(`Nouvelle valeur : ${b}`))
+        console.log(`Nouvelle valeur : ${b}`)
     }
 
     if(rip[0].toLowerCase() === "!varhumour") {
@@ -39,6 +42,7 @@ client.on('message', message => {
             exampleEmbed = new Discord.MessageEmbed()
             .setColor('#FFC0CB')
             .setTitle(`Mon humour est de valeur : ${b}`))
+        console.log(`Mon humour est de valeur : ${b}`)
     }
 
 })
@@ -60,74 +64,88 @@ client.on('message', message =>{
     res = res.replaceAll('`','')*/
 
     var rip = res.toLowerCase().split(" ");
-    var mot = [rip[rip.length - 2],rip[rip.length - 1]]
+    var mot = [rip[rip.length - 2],rip[rip.length - 1]] //le dernier et l'avant dernier mot (l'antépénultième tmtc)
 
-    var trigger = ["oui","non","nan","quoi","comment","lol","wesh"]
+    var trigger = ["oui","non","nan","quoi","comment","lol","wesh","hein","ah"] //tout les mots qu'il voit
 
     function isLetter(c) {
         return c.toLowerCase() != c.toUpperCase();
     }
-
-    if(isLetter(mot[1]) === true && !trigger.includes(mot[1])) {
+    if(isLetter(mot[1]) === true && !trigger.includes(mot[1])) {         //vérifie si le dernier mot contient des lettres et s'il n'est pas dans les triggers (return) par ex : si "oui mais" il ne répond pas, mais si "oui ???" il répond
         return
     }
 
-    if(message.content[0] === PREFIX) {
-        if(message.content === '!hello') {
-            message.channel.send('world !')
-            console.log("world !")
-        }
+    if(message.content === '!hello') {
+        message.channel.send('world !')
+        console.log("world !")
     }
-    if(mot[0] === "oui" || mot[1] === "oui") {
+    if(mot.includes('oui')) {
 
         if(a < b){
             message.channel.send('stiti')
             console.log("stiti")
         }
     }
-    if(mot[0] === "non" || mot[1] === "non") {
+    if(mot.includes('non')) {
         
         if(a < b){
             message.channel.send('si')
             console.log("si")
         }
     }
-    if(mot[0] === "nan" || mot[1] === "nan") {
+    if(mot.includes('nan')) {
         
         if(a < b){
             message.channel.send('cy')
             console.log("cy")
         }
     }
-    if(mot[0] === "quoi" || mot[1] === "quoi") {
+    if(mot.includes('quoi')) {
      
         if(a < b){
             message.channel.send('feur')
             console.log("feur")
         }
     }
-    if(mot[0] === "comment" || mot[1] === "comment") {
+    if(mot.includes('comment')) {
      
         if(a < b){
             message.channel.send('dent')
             console.log("dent")
         }  
     }
-    if(mot[0] === "wesh" || mot[1] === "wesh") {
+    if(mot.includes('wesh')) {
   
         if(a < b){
             message.channel.send('dene')
             console.log("dene")
         }  
     }
-    if(mot[0] === "lol" || mot[1] === "lol") {
+    if(mot.includes('lol')) {
      
         if(a < b){
             message.channel.send('ita')
             console.log("ita")
         }  
     }
+    if(mot.includes('ah')) {
+     
+        if(a < b){
+            message.channel.send('tchoum')
+            console.log("tchoum")
+        }  
+    }
+    if(mot.includes('hein')) {
+     
+        if(a < b){
+            message.channel.send('2')
+            console.log("2")
+        }  
+    }
 })
+
+
+
 
 client.on('message', message =>{
 
@@ -143,9 +161,12 @@ client.on('message', message =>{
     }
 })
 
+
+
+
 client.on('message', message =>{
 
-    let a=Math.floor(Math.random() * 10)
+    let a=Math.floor(Math.random() * 100)
 
     if(message.content.toLowerCase().includes("mort")) {
         if(a < b){
