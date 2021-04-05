@@ -49,11 +49,11 @@ client.on('message', message => {
 
 
 client.on('message', message =>{
-        
-    /*if(message.channel.id === "623628342528049153") {
+    
+    if(message.channel.parent.id === "776345454367473676") {
         return
-    }*/
-
+    }
+        
     let a=Math.floor(Math.random() * 100)
 
     var res = message.content
