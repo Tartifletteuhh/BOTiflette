@@ -48,6 +48,22 @@ client.on('message', message => {
 
 })
 
+client.on('message', message => {
+
+    var res = message.content
+    var rip = res.toLowerCase().split(" ");
+
+    if(rip[0].toLowerCase() === "!invitme") {
+        message.delete()
+        message.channel.send(
+            exampleEmbed = new Discord.MessageEmbed()
+            .setColor('#FFC0CB')
+            .setTitle("Mon lien d'invitation : https://discord.com/api/oauth2/authorize?client_id=735477050579615754&permissions=8&scope=bot"))
+        console.log(`lien d'invit`)
+    }
+
+})
+
 
 client.on('message', message =>{
 
