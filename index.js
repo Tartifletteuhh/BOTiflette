@@ -49,19 +49,22 @@ client.on('message', message => {
 
 
 client.on('message', message =>{
-    
-    if(message.channel.parent.id === "776345454367473676") {
-        return
-    }
-        
-    let a=Math.floor(Math.random() * 100)
 
-    var res = message.content
-    /*res = res.replaceAll('*','')
+    let a=Math.floor(Math.random() * 100)
+    if(message.author.bot) return
+
+    let res = message.content
+    res = res.replaceAll('*','')
     res = res.replaceAll('~','')
     res = res.replaceAll('_','')
     res = res.replaceAll('|','')
-    res = res.replaceAll('`','')*/
+    res = res.replaceAll('`','')
+
+    if(message.content) {
+        if(message.channel.parent !== undefined && message.channel.parent.name === "📂Cours") {
+            return
+        }
+    }
 
     var rip = res.toLowerCase().split(" ");
     var mot = [rip[rip.length - 2],rip[rip.length - 1]] //le dernier et l'avant dernier mot (l'antépénultième tmtc)
@@ -75,6 +78,10 @@ client.on('message', message =>{
         return
     }
 
+    if(trigger.includes(mot[0]) && trigger.includes(mot[1])) {
+        delete(mot[0])
+    }
+    
     if(message.content === '!hello') {
         message.channel.send('world !')
         console.log("world !")
@@ -165,6 +172,12 @@ client.on('message', message =>{
 
 
 client.on('message', message =>{
+
+    if(message.content) {
+        if(message.channel.parent !== undefined && message.channel.parent.name === "📂Cours") {
+            return
+        }
+    }
 
     let a=Math.floor(Math.random() * 100)
 
