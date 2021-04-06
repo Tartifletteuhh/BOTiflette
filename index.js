@@ -54,11 +54,11 @@ client.on('message', message =>{
     if(message.author.bot) return
 
     let res = message.content
-    res = res.replaceAll('*','')
-    res = res.replaceAll('~','')
-    res = res.replaceAll('_','')
-    res = res.replaceAll('|','')
-    res = res.replaceAll('`','')
+    res = res.split("*").join("")
+    res = res.split("~").join("")
+    res = res.split("_").join("")
+    res = res.split("|").join("")
+    res = res.split("`").join("")
 
     if(message.content) {
         if(message.channel.parent !== undefined && message.channel.parent.name === "📂Cours") {
