@@ -16,6 +16,7 @@ var b = 100
 
 client.on('ready', function() {
     console.log("prêt !")
+    client.channels.cache.get('798604848727326780').send(exampleEmbed = new Discord.MessageEmbed().setColor('#FFC0CB').setTitle('prêt !'))
 })
 client.on('ready', () => {
     client.user.setPresence({ activity: { name: 'One Piece', type: 'WATCHING' }, status: 'dnd' })
