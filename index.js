@@ -77,10 +77,8 @@ client.on('message', message =>{
     res = res.split("|").join("")
     res = res.split("`").join("")
 
-    if(message.content) {
-        if(message.channel.parent !== undefined && message.channel.parent.name === "📂Cours") {
-            return
-        }
+    if(message.channel.parent) {
+        if (message.channel.parent.name === "📂Cours") return
     }
 
     var rip = res.toLowerCase().split(" ");
@@ -190,10 +188,8 @@ client.on('message', message =>{
 
 client.on('message', message =>{
 
-    if(message.content) {
-        if(message.channel.parent !== undefined && message.channel.parent.name === "📂Cours") {
-            return
-        }
+    if(message.channel.parent) {
+        if (message.channel.parent.name === "📂Cours") return
     }
 
     let a=Math.floor(Math.random() * 100)
