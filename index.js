@@ -12,7 +12,7 @@ const username = 'nathanael.claudon'
 const password = 'nanate88'
 const cas = 'ac-nancy-metz'
 let oldMoyenne = 0
-var b = 100
+var b = 25
 
 client.on('ready', function() {
     console.log("prêt !")
