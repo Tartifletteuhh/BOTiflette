@@ -74,10 +74,12 @@ client.api.applications('735477050579615754').commands.post({data: {
     name: 'ping',
     description: 'ping pong!'
     }
-    
 })
+
+
 client.ws.on('INTERACTION_CREATE', async (interaction) => {
     const command = interaction.data.name.toLowerCase()
+    console.log(interaction)
     if(command === 'ping') {
         client.api.interactions(interaction.id, interaction.token).callback.post({data: {
             type: 4,
@@ -116,7 +118,7 @@ client.on('message', message =>{
     var rip = res.toLowerCase().split(" ");
     var mot = [rip[rip.length - 2],rip[rip.length - 1]] //le dernier et l'avant dernier mot (l'antépénultième tmtc)
 
-    var trigger = ["oui","non","nan","quoi","comment","lol","wesh","hein","ah"] //tout les mots qu'il voit
+    var trigger = ["oui","non","nan","quoi","comment","lol","wesh","hein","ah","cheh","bonjour"] //tout les mots qu'il voit
 
     function isLetter(c) {
         return c.toLowerCase() != c.toUpperCase();
@@ -194,6 +196,20 @@ client.on('message', message =>{
         if(a < b){
             message.channel.send('2')
             console.log("2")
+        }  
+    }
+    if(mot.includes('cheh')) {
+     
+        if(a < b){
+            message.channel.send('vre')
+            console.log("vre")
+        }  
+    }
+    if(mot.includes('bonjour')) {
+     
+        if(a < b){
+            message.channel.send('au revoir')
+            console.log("au revoir")
         }  
     }
 })
