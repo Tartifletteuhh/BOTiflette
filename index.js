@@ -58,7 +58,7 @@ client.on('message', message => {
         message.channel.send(
             exampleEmbed = new Discord.MessageEmbed()
             .setColor('#FFC0CB')
-            .setTitle("Mon lien d'invitation : https://discord.com/api/oauth2/authorize?client_id=735477050579615754&permissions=8&scope=bot"))
+            .setTitle("Mon lien d'invitation : https://discord.com/api/oauth2/authorize?client_id=735477050579615754&permissions=8&scope=applications.commands%20bot"))
         console.log(`lien d'invit`)
     }
 
@@ -71,20 +71,32 @@ client.on('message', message => {
 
 
 client.api.applications('735477050579615754').commands.post({data: {
-    name: 'ping',
-    description: 'ping pong!'
+    name: 'invitme',
+    description: "envoie mon lien d'invation !"
     }
 })
-
+client.api.applications('735477050579615754').commands.post({data: {
+    name: 'ping',
+    description: "ping pong !"
+    }
+})
 
 client.ws.on('INTERACTION_CREATE', async (interaction) => {
     const command = interaction.data.name.toLowerCase()
     console.log(interaction)
+    if(command === 'invitme') {
+        client.api.interactions(interaction.id, interaction.token).callback.post({data: {
+            type: 4,
+            data: {
+              content: "Mon lien d'invitation : https://discord.com/api/oauth2/authorize?client_id=735477050579615754&permissions=8&scope=applications.commands%20bot"
+            }
+          }})
+    }
     if(command === 'ping') {
         client.api.interactions(interaction.id, interaction.token).callback.post({data: {
             type: 4,
             data: {
-              content: 'pong !'
+              content: "pong !"
             }
           }})
     }
