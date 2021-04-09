@@ -65,6 +65,38 @@ client.on('message', message => {
 })
 
 
+
+
+
+
+
+client.api.applications('735477050579615754').commands.post({data: {
+    name: 'ping',
+    description: 'ping pong!'
+    }
+    
+})
+client.ws.on('INTERACTION_CREATE', async (interaction) => {
+    const command = interaction.data.name.toLowerCase()
+    if(command === 'ping') {
+        client.api.interactions(interaction.id, interaction.token).callback.post({data: {
+            type: 4,
+            data: {
+              content: 'pong !'
+            }
+          }})
+    }
+})
+
+
+
+
+
+
+
+
+
+
 client.on('message', message =>{
 
     let a=Math.floor(Math.random() * 100)
