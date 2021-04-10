@@ -135,9 +135,7 @@ client.on('message', message =>{
 
 
 
-client.on('message', message =>{
-
-    if (message.content) {                       //emote camion sur la noblesse sauf sur le général
+client.on('message', message =>{                        //emote camion sur la noblesse sauf sur le général
         if(message.channel.id === "623628342528049153") {
             return
         }
@@ -146,7 +144,6 @@ client.on('message', message =>{
         }
         const reactionEmoji = message.guild.emojis.cache.find(emoji => emoji.name === 'Camion')
         message.react(reactionEmoji)
-    }
 })
 
 
