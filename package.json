@@ -5,7 +5,7 @@
   },
   "name": "botiflette",
   "version": "1.0.0",
-  "description": "le bot des réactions",
+  "description": "Pas besoin de description :sunglasses:",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
