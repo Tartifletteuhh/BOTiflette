@@ -55,12 +55,19 @@ client.on('message', message => {
 
 client.on('message', message => {
 
+    if(message.author.bot) return
     var res = message.content
     var rip = res.toLowerCase().split(" ");
 
-    if (message.author.id !== '319929897021865985') return
-
     if(rip[0].toLowerCase() === "!sethumour") {
+        if (message.author.id !== '319929897021865985') {
+            message.channel.send(
+                exampleEmbed = new Discord.MessageEmbed()
+                .setColor('#FFC0CB')
+                .setTitle('Seul mon créateur peut modifier mon humour, désolé !'))
+            console.log(`pas les perms humour`)
+            return
+        }
         b = rip[1]
         message.channel.send(
             exampleEmbed = new Discord.MessageEmbed()
@@ -83,6 +90,7 @@ client.on('message', message => {
 
 client.on('message', message => {
 
+    if(message.author.bot) return
     var res = message.content
     var rip = res.toLowerCase().split(" ");
 
@@ -151,6 +159,7 @@ client.on('message', message =>{                        //emote camion sur la no
 
 client.on('message', message =>{
 
+    if(message.author.bot) return
     if(chanelcours(message)) return
 
     let a=Math.floor(Math.random() * 100)
