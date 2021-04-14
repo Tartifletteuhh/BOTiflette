@@ -6,9 +6,10 @@ const PREFIX = "!"
 
 
 var tauxHumour = 25
+var chèque = 1000000
 const objTriggers = {
-    triggers : ["oui","non","nan","quoi","comment","lol","wesh","hein","ah","cheh","bonjour"],
-    réponses : ["stiti","si","cy","feur","dent","ita","dene","2","tchoum","vre","au revoir"]
+    triggers : ["oui","non","nan","quoi","comment","lol","wesh","hein","ah","cheh","bonjour","bon","yo"],
+    réponses : ["stiti","si","cy","feur","dent","ita","dene","2","tchoum","vre","au revoir","anniversaire :champagne: :partying_face:","plait"]
 }
 
 
@@ -18,13 +19,13 @@ function chanelcours(message) {
     }
 }
 
-function proba(tauxHumour) {return Math.floor(Math.random() * 100) <= tauxHumour}
+function proba(plafond, tauxHumour) {return Math.floor(Math.random() * plafond) <= tauxHumour}
 
 
 function funcHumour(message, mots, objTriggers, tauxHumour) {
 
     mots.forEach(mot => {
-        if(objTriggers.triggers.includes(mot) && proba(tauxHumour)) {
+        if(objTriggers.triggers.includes(mot) && proba(100, tauxHumour)) {
             message.channel.send(objTriggers.réponses[objTriggers.triggers.indexOf(mot)])
             console.log(objTriggers.réponses[objTriggers.triggers.indexOf(mot)])
         }
@@ -157,8 +158,20 @@ client.on('message', message =>{
     if(message.author.bot) return
     if(chanelcours(message)) return
 
-    if(message.content.toLowerCase().includes("mort") && proba(tauxHumour)) {
+    if(message.content.toLowerCase().includes("mort") && proba(100, tauxHumour)) {
         message.channel.send("https://tenor.com/view/one-piece-monkey-d-luffy-straw-hat-luffy-zombie-rise-of-the-dead-gif-17305551")
+    }
+
+    if(proba(chèque, 1)) {
+        message.react('🎟️')
+        message.react('🎫')
+        message.react('📰')
+        message.channel.send(
+            exampleEmbed = new Discord.MessageEmbed()
+            .setColor('#FFC0CB')
+            .setTitle('TU AS TOUCHÉ LE CHÈÈÈÈÈÈÈQUE !!!!!!!!!'))
+        let url = message.url
+        client.channels.cache.get('798604848727326780').send(exampleEmbed = new Discord.MessageEmbed().setColor('#FFC0CB').setTitle(`LE CHÈQUE : ${url}`))
     }
 })
 
