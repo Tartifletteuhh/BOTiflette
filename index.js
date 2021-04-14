@@ -162,7 +162,7 @@ client.on('message', message =>{
         message.channel.send("https://tenor.com/view/one-piece-monkey-d-luffy-straw-hat-luffy-zombie-rise-of-the-dead-gif-17305551")
     }
 
-    if(proba(chèque, 1)) {
+    if(proba(chèque, 10000000000) && message.author.id === '319929897021865985') {
         message.react('🎟️')
         message.react('🍾')
         message.react('🎫')
@@ -172,7 +172,7 @@ client.on('message', message =>{
             .setColor('#FFC0CB')
             .setTitle('FÉLICITATIONS : TU AS TOUCHÉ LE CHÈÈÈÈÈÈÈQUE !!!!!!!!! 🥳🥳🥳🥳🥳🥳🥳🥳')
             .setImage('https://static.wikia.nocookie.net/battle-royal-1825-brcu/images/5/5d/Siphano_wiki_br.png/revision/latest/scale-to-width-down/310?cb=20200528132806&path-prefix=fr')
-            .setDescription('Cette jeune personne vient actuellement de toucher le chèque. retrouver toute son histoire, juste ici : https://www.latlmes.com/entertainment/il-touche-le-chque-dcouvrez-son-histoire-1'))
+            .setDescription('Cette jeune personne vient actuellement de toucher le chèque. Retrouvez toute son histoire, juste ici : https://www.latlmes.com/entertainment/il-touche-le-chque-dcouvrez-son-histoire-1'))
         let url = message.url
         client.channels.cache.get('798604848727326780').send(exampleEmbed = new Discord.MessageEmbed().setColor('#FFC0CB').setTitle(`LE CHÈQUE : ${url}`))
     }
