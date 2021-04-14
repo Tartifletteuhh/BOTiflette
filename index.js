@@ -11,7 +11,7 @@ const objTriggers = {
     triggers : ["oui","non","nan","quoi","comment","lol","wesh","hein","ah","cheh","bonjour","bon","yo"],
     réponses : ["stiti","si","cy","feur","dent","ita","dene","2","tchoum","vre","au revoir","anniversaire :champagne: :partying_face:","plait"]
 }
-
+var politesse = ["bonjour","salut","yo","wesh","hey","hola"]
 
 function chanelcours(message) {
     if(message.channel.parent) {
@@ -176,6 +176,13 @@ client.on('message', message =>{
         let url = message.url
         client.channels.cache.get('798604848727326780').send(exampleEmbed = new Discord.MessageEmbed().setColor('#FFC0CB').setTitle(`LE CHÈQUE : ${url}`))
     }
+
+    politesse.forEach(politesseMot => {
+        if(message.content.toLowerCase().startsWith(politesseMot)) {
+            message.react('👋')
+            console.log('👋')
+        }
+    })
 })
 
 
