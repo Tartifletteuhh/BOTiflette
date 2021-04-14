@@ -162,7 +162,7 @@ client.on('message', message =>{
         message.channel.send("https://tenor.com/view/one-piece-monkey-d-luffy-straw-hat-luffy-zombie-rise-of-the-dead-gif-17305551")
     }
 
-    if(proba(chèque, 10000000000) && message.author.id === '319929897021865985') {
+    if(proba(chèque, 1)) {
         message.react('🎟️')
         message.react('🍾')
         message.react('🎫')
