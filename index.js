@@ -19,7 +19,7 @@ function chanelcours(message) {
     }
 }
 
-function proba(plafond, tauxHumour) {return Math.floor(Math.random() * plafond) <= tauxHumour}
+function proba(plafond, valeur) {return Math.floor(Math.random() * plafond) <= valeur}
 
 
 function funcHumour(message, mots, objTriggers, tauxHumour) {
@@ -162,7 +162,7 @@ client.on('message', message =>{
         message.channel.send("https://tenor.com/view/one-piece-monkey-d-luffy-straw-hat-luffy-zombie-rise-of-the-dead-gif-17305551")
     }
 
-    if(proba(chèque, 1)) {
+    if(proba(chèque, 5)) {
         message.react('🎟️')
         message.react('🍾')
         message.react('🎫')
