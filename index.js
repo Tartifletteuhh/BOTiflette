@@ -11,7 +11,7 @@ const objTriggers = {
     triggers : ["oui","non","nan","quoi","comment","lol","wesh","hein","ah","cheh","bonjour","bon","yo"],
     réponses : ["stiti","si","cy","feur","dent","ita","dene","2","tchoum","vre","au revoir","anniversaire :champagne: :partying_face:","plait"]
 }
-var politesse = ["bonjour","salut","yo","wesh","hey","hola"]
+var politesse = ["bonjour","salut","yo","wesh","hey","hola","hello","hellow","ohayo","👋"]
 
 function chanelcours(message) {
     if(message.channel.parent) {
