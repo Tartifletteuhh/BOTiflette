@@ -120,6 +120,7 @@ client.on('message', message =>{
     res = res.split("_").join("")
     res = res.split("|").join("")
     res = res.split("`").join("")
+    res = res.split(".").join("")
 
 
 
@@ -184,12 +185,6 @@ client.on('message', message =>{
         }
     })
 })
-
-
-
-
-
-
 
 
 
