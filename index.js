@@ -5,6 +5,9 @@ require('dotenv').config()
 const fonctions = require("./fonctions.js"); 
 const client = new Discord.Client()
 
+
+
+
 global.tauxHumour = 25
 var chèque = 1000000
 const objTriggers = {
@@ -12,6 +15,10 @@ const objTriggers = {
     réponses : ["stiti","si","cy","feur","dent","ita","dene","2","tchoum","vre","au revoir","anniversaire :champagne: :partying_face:","plait"]
 }
 var politesse = ["bonjour","salut","yo","wesh","hey","hola","hello","hellow","ohayo","👋","coucou"]
+
+
+
+
 
 client.on('ready', function() {
     console.log("prêt !")
@@ -25,8 +32,12 @@ client.on('ready', () => {
     commandsDir: 'commands',
     testServers: ['722748727764320317'],
     showWarns: false,
+    disabledDefaultCommands
     })
+    .setBotOwner(['251120969320497153'])
 })
+
+
 
 
 client.on('message', message =>{
@@ -63,6 +74,7 @@ client.on('message', message =>{
 
 
 
+
 client.on('message', message =>{                        //emote camion sur la noblesse sauf sur le général
     if(message.channel.id === "623628342528049153" || message.guild.id !== "623628341940977674") {
         return
@@ -72,7 +84,11 @@ client.on('message', message =>{                        //emote camion sur la no
 })
 
 
+
+
 client.on('message', message =>{
+
+
 
     if(message.author.bot) return
     if(fonctions.chanelcours(message)) return
@@ -80,6 +96,9 @@ client.on('message', message =>{
     if(message.content.toLowerCase().includes("mort") && fonctions.proba(100, tauxHumour)) {
         message.channel.send("https://tenor.com/view/one-piece-monkey-d-luffy-straw-hat-luffy-zombie-rise-of-the-dead-gif-17305551")
     }
+
+
+
 
     if(fonctions.proba(chèque, 5)) {
         message.react('🎟️')
@@ -96,6 +115,7 @@ client.on('message', message =>{
         client.channels.cache.get('798604848727326780').send(exampleEmbed = new Discord.MessageEmbed().setColor('#FFC0CB').setTitle(`LE CHÈQUE : ${url}`))
     }
 
+
     politesse.forEach(politesseMot => {
         if(message.content.toLowerCase().startsWith(politesseMot)) {
             message.react('👋')
@@ -103,6 +123,8 @@ client.on('message', message =>{
         }
     })
 })
+
+
 
 
 /*client.on("message", message => { // EventEmitter
@@ -113,6 +135,8 @@ client.on('message', message =>{
 			});
 		}
 })*/
+
+
 
 
 
