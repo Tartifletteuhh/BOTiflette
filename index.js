@@ -1,17 +1,15 @@
 const Discord = require('discord.js')
-const pronote = require('pronote-api')
+const WOKCommands = require('wokcommands')
+require('dotenv').config()
 const client = new Discord.Client()
-client.login('NzM1NDc3MDUwNTc5NjE1NzU0.Xxg0YQ.haiX_5QZUKlnRTC-tRox5qRZGyM')
-const PREFIX = "!"
 
-
-var tauxHumour = 25
+global.tauxHumour = 25
 var chèque = 1000000
 const objTriggers = {
     triggers : ["oui","non","nan","quoi","comment","lol","wesh","hein","ah","cheh","bonjour","bon","yo"],
     réponses : ["stiti","si","cy","feur","dent","ita","dene","2","tchoum","vre","au revoir","anniversaire :champagne: :partying_face:","plait"]
 }
-var politesse = ["bonjour","salut","yo","wesh","hey","hola","hello","hellow","ohayo","👋"]
+var politesse = ["bonjour","salut","yo","wesh","hey","hola","hello","hellow","ohayo","👋","coucou"]
 
 function chanelcours(message) {
     if(message.channel.parent) {
@@ -45,68 +43,14 @@ client.on('ready', function() {
 client.on('ready', () => {
     client.user.setPresence({ activity: { name: 'One Piece', type: 'WATCHING' }, status: 'dnd' })
 })
-
-
-
-client.on('message', message => {
-    if(message.content === '!hello') {
-    message.channel.send('world !')
-    console.log("world !")
-    }
+client.on('ready', () => {
+    new WOKCommands(client, {
+    commandsDir: 'commands',
+    testServers: ['722748727764320317'],
+    showWarns: false,
+    })
 })
 
-
-
-
-client.on('message', message => {
-
-    if(message.author.bot) return
-    let messageSplit = message.content.toLowerCase().split(" ");
-
-    if(messageSplit[0].toLowerCase() === "!sethumour") {
-        if (message.author.id !== '319929897021865985') {
-            message.channel.send(
-                exampleEmbed = new Discord.MessageEmbed()
-                .setColor('#FFC0CB')
-                .setTitle('Seul mon créateur peut modifier mon humour, désolé !'))
-            console.log(`pas les perms humour`)
-            return
-        }
-        tauxHumour = messageSplit[1]
-        message.channel.send(
-            exampleEmbed = new Discord.MessageEmbed()
-            .setColor('#FFC0CB')
-            .setTitle(`Nouvelle valeur : ${tauxHumour}`))
-        console.log(`Nouvelle valeur : ${tauxHumour}`)
-    }
-
-    if(messageSplit[0].toLowerCase() === "!varhumour") {
-        message.channel.send(
-            exampleEmbed = new Discord.MessageEmbed()
-            .setColor('#FFC0CB')
-            .setTitle(`Mon humour est de valeur : ${tauxHumour}`))
-        console.log(`Mon humour est de valeur : ${tauxHumour}`)
-    }
-
-})
-
-
-
-client.on('message', message => {
-
-    if(message.author.bot) return
-    let messageSplit = message.content.toLowerCase().split(" ");
-
-    if(messageSplit[0].toLowerCase() === "!invitme") {
-        message.delete()
-        message.channel.send(
-            exampleEmbed = new Discord.MessageEmbed()
-            .setColor('#FFC0CB')
-            .setTitle("Mon lien d'invitation : https://discord.com/api/oauth2/authorize?client_id=735477050579615754&permissions=8&scope=applications.commands%20bot"))
-        console.log(`lien d'invit`)
-    }
-
-})
 
 client.on('message', message =>{
 
@@ -142,7 +86,6 @@ client.on('message', message =>{
 
 
 
-
 client.on('message', message =>{                        //emote camion sur la noblesse sauf sur le général
     if(message.channel.id === "623628342528049153" || message.guild.id !== "623628341940977674") {
         return
@@ -150,8 +93,6 @@ client.on('message', message =>{                        //emote camion sur la no
     const emoteCamion = message.guild.emojis.cache.find(emoji => emoji.name === 'Camion')
     message.react(emoteCamion)
 })
-
-
 
 
 client.on('message', message =>{
@@ -187,37 +128,15 @@ client.on('message', message =>{
 })
 
 
+/*client.on("message", message => { // EventEmitter
+	if(message.content == "!ping"){ // Check if message is "!ping"
+			message.channel.send("Pinging ...") // Placeholder for pinging ... 
+			.then((msg) => { // Resolve promise
+				msg.edit("Ping: " + (Date.now() - msg.createdTimestamp) + "ms") // Edits message with current timestamp minus timestamp of message
+			});
+		}
+})*/
 
 
 
-client.api.applications('735477050579615754').commands.post({data: {
-    name: 'invitme',
-    description: "envoie mon lien d'invation !"
-    }
-})
-client.api.applications('735477050579615754').commands.post({data: {
-    name: 'ping',
-    description: "ping pong !"
-    }
-})
-
-client.ws.on('INTERACTION_CREATE', async (interaction) => {
-    const command = interaction.data.name.toLowerCase()
-    console.log(interaction)
-    if(command === 'invitme') {
-        client.api.interactions(interaction.id, interaction.token).callback.post({data: {
-            type: 4,
-            data: {
-              content: "Mon lien d'invitation : https://discord.com/api/oauth2/authorize?client_id=735477050579615754&permissions=8&scope=applications.commands%20bot"
-            }
-          }})
-    }
-    if(command === 'ping') {
-        client.api.interactions(interaction.id, interaction.token).callback.post({data: {
-            type: 4,
-            data: {
-              content: "pong !"
-            }
-          }})
-    }
-})
+client.login('NzM1NDc3MDUwNTc5NjE1NzU0.Xxg0YQ.haiX_5QZUKlnRTC-tRox5qRZGyM')

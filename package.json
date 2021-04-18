@@ -1,7 +1,8 @@
 {
   "dependencies": {
     "discord.js": "^12.4.1",
-    "pronote-api": "^2.3.0"
+    "nodemon": "^2.0.7",
+    "wokcommands": "github:AlexzanderFlores/WOKCommands#dev"
   },
   "name": "botiflette",
   "version": "1.0.0",
