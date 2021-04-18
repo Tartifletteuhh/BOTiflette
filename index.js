@@ -28,13 +28,20 @@ client.on('ready', () => {
     client.user.setPresence({ activity: { name: 'One Piece', type: 'WATCHING' }, status: 'dnd' })
 })
 client.on('ready', () => {
+    const disabledDefaultCommands = [
+        'help',
+        'command',
+        'language',
+        'prefix',
+        'requiredrole'
+      ]
     new WOKCommands(client, {
     commandsDir: 'commands',
     testServers: ['722748727764320317'],
     showWarns: false,
     disabledDefaultCommands
     })
-    .setBotOwner(['251120969320497153'])
+    .setBotOwner(['319929897021865985'])
 })
 
 
