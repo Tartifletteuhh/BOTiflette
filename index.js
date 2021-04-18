@@ -1,6 +1,8 @@
 const Discord = require('discord.js')
 const WOKCommands = require('wokcommands')
+const config = require("./config.json")
 require('dotenv').config()
+const fonctions = require("./fonctions.js"); 
 const client = new Discord.Client()
 
 global.tauxHumour = 25
@@ -10,31 +12,6 @@ const objTriggers = {
     réponses : ["stiti","si","cy","feur","dent","ita","dene","2","tchoum","vre","au revoir","anniversaire :champagne: :partying_face:","plait"]
 }
 var politesse = ["bonjour","salut","yo","wesh","hey","hola","hello","hellow","ohayo","👋","coucou"]
-
-function chanelcours(message) {
-    if(message.channel.parent) {
-        if (message.channel.parent.id === "776345454367473676") return true
-    }
-}
-
-function proba(plafond, valeur) {return Math.floor(Math.random() * plafond) <= valeur}
-
-
-function funcHumour(message, mots, objTriggers, tauxHumour) {
-
-    mots.forEach(mot => {
-        if(objTriggers.triggers.includes(mot) && proba(100, tauxHumour)) {
-            message.channel.send(objTriggers.réponses[objTriggers.triggers.indexOf(mot)])
-            console.log(objTriggers.réponses[objTriggers.triggers.indexOf(mot)])
-        }
-    })
-
-}
-
-function isLetter(x) {
-    return x.toLowerCase() != x.toUpperCase();
-}
-
 
 client.on('ready', function() {
     console.log("prêt !")
@@ -55,7 +32,7 @@ client.on('ready', () => {
 client.on('message', message =>{
 
     if(message.author.bot) return
-    if(chanelcours(message)) return
+    if(fonctions.chanelcours(message)) return
 
 
     let res = message.content
@@ -71,7 +48,7 @@ client.on('message', message =>{
     let messageSplit = res.toLowerCase().split(" ");
     let mots = [messageSplit[messageSplit.length - 2],messageSplit[messageSplit.length - 1]] //le dernier et l'avant dernier mot (l'antépénultième tmtc)
 
-    if(isLetter(mots[1]) === true && !objTriggers.triggers.includes(mots[1])) {         //vérifie si le dernier mot contient des lettres et s'il n'est pas dans les triggers (return) par ex : si "oui mais" il ne répond pas, mais si "oui ???" il répond
+    if(fonctions.isLetter(mots[1]) === true && !objTriggers.triggers.includes(mots[1])) {         //vérifie si le dernier mot contient des lettres et s'il n'est pas dans les triggers (return) par ex : si "oui mais" il ne répond pas, mais si "oui ???" il répond
         return
     }
 
@@ -80,7 +57,7 @@ client.on('message', message =>{
     }
     
     
-    funcHumour(message, mots, objTriggers, tauxHumour)
+    fonctions.funcHumour(message, mots, objTriggers, tauxHumour)
 
 })
 
@@ -98,13 +75,13 @@ client.on('message', message =>{                        //emote camion sur la no
 client.on('message', message =>{
 
     if(message.author.bot) return
-    if(chanelcours(message)) return
+    if(fonctions.chanelcours(message)) return
 
-    if(message.content.toLowerCase().includes("mort") && proba(100, tauxHumour)) {
+    if(message.content.toLowerCase().includes("mort") && fonctions.proba(100, tauxHumour)) {
         message.channel.send("https://tenor.com/view/one-piece-monkey-d-luffy-straw-hat-luffy-zombie-rise-of-the-dead-gif-17305551")
     }
 
-    if(proba(chèque, 5)) {
+    if(fonctions.proba(chèque, 5)) {
         message.react('🎟️')
         message.react('🍾')
         message.react('🎫')
@@ -139,4 +116,4 @@ client.on('message', message =>{
 
 
 
-client.login('NzM1NDc3MDUwNTc5NjE1NzU0.Xxg0YQ.haiX_5QZUKlnRTC-tRox5qRZGyM')
+client.login(config.token)
