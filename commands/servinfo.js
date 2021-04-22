@@ -12,22 +12,24 @@ module.exports = {
         const icon = message.guild.iconURL()
 
         const embed = new MessageEmbed()
-            .setTitle(`Server info for "${name}"`)
+            .setTitle(`Information du serveur "${name}"`)
             .setThumbnail(icon)
+            .setColor('#FFC0CB')
             .addFields(
             {
                 name: 'Region',
                 value: region,
             },
             {
-                name: 'Members',
+                name: 'Membres',
                 value: memberCount,
             },
             {
-                name: 'Owner',
+                name: 'Propriétaire',
                 value: "@" + owner.user.tag,
             }
             )
+            .setTimestamp()
 
         message.channel.send(embed)
         

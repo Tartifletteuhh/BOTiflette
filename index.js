@@ -22,7 +22,7 @@ var politesse = ["bonjour","salut","yo","wesh","hey","hola","hello","hellow","oh
 
 client.on('ready', function() {
     console.log(`${client.user.username} est prêt !`)
-    client.channels.cache.get('798604848727326780').send(exampleEmbed = new Discord.MessageEmbed().setColor('#FFC0CB').setTitle(`${client.user.username} est prêt !`))
+    client.channels.cache.get('798604848727326780').send(exampleEmbed = new Discord.MessageEmbed().setColor('#FFC0CB').setTitle(`${client.user.username} est prêt !`).setTimestamp())
 })
 client.on('ready', () => {
     client.user.setPresence({ activity: { name: 'One Piece', type: 'WATCHING' }, status: 'dnd' })
@@ -118,6 +118,7 @@ client.on('message', message =>{
             .setTitle('FÉLICITATIONS : TU AS TOUCHÉ LE CHÈÈÈÈÈÈÈQUE !!!!!!!!! 🥳🥳🥳🥳🥳🥳🥳🥳')
             .setImage('https://static.wikia.nocookie.net/battle-royal-1825-brcu/images/5/5d/Siphano_wiki_br.png/revision/latest/scale-to-width-down/310?cb=20200528132806&path-prefix=fr')
             .setDescription('Cette jeune personne vient actuellement de toucher le chèque. Retrouvez toute son histoire, juste ici : https://www.latlmes.com/entertainment/il-touche-le-chque-dcouvrez-son-histoire-1'))
+            .setTimestamp()
         let url = message.url
         client.channels.cache.get('798604848727326780').send(exampleEmbed = new Discord.MessageEmbed().setColor('#FFC0CB').setTitle(`LE CHÈQUE : ${url}`))
     }
@@ -130,7 +131,6 @@ client.on('message', message =>{
         }
     })
 })
-
 
 
 

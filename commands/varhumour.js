@@ -8,6 +8,7 @@ module.exports = {
     const embed = new MessageEmbed()
     .setTitle(`Mon humour est de valeur : ${tauxHumour}`)
     .setColor('#FFC0CB')
+    .setTimestamp()
 
     if (message) {
         if(message.author.bot) return
