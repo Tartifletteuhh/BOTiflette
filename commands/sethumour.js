@@ -11,12 +11,11 @@ module.exports = {
     const embed = new MessageEmbed()
     .setTitle(`Nouvelle valeur : ${tauxHumour}`)
     .setColor('#FFC0CB')
+    .setTimestamp()
     
+    if(message.author.bot) return
+    tauxHumour = humour
+    message.channel.send(embed)
 
-    if (message) {
-        if(message.author.bot) return
-        tauxHumour = humour
-        message.channel.send(embed)
-    }
   },
 }
