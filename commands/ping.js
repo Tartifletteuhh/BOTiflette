@@ -1,13 +1,12 @@
 module.exports = {
-    slash: 'both',
-    description: "ping pong !",
     callback: ({message}) => {
         console.log('pong !')
 
         if (message) {
-            message.channel.send('pong !')
+            message.channel.send("Pinging ...")
+            .then((msg) => {
+                msg.edit("Ping: " + (Date.now() - msg.createdTimestamp) + "ms")
+            });
         }
-        
-        return 'pong !'
     }
   }

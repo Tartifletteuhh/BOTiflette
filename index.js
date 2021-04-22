@@ -14,15 +14,15 @@ const objTriggers = {
     triggers : ["oui","non","nan","quoi","comment","lol","wesh","hein","ah","cheh","bonjour","bon","yo","salut","wa"],
     réponses : ["stiti","si","cy","feur","dent","ita","dene","2","tchoum","vre","au revoir","anniversaire :champagne: :partying_face:","plait","poilu","luigi https://cdn.discordapp.com/attachments/685603812781981730/833623730294226944/668183889583407109.png"]
 }
-var politesse = ["bonjour","salut","yo","wesh","hey","hola","hello","hellow","ohayo","👋","coucou","pouet","cc","slt","wsh","bjr","pouet"]
+var politesse = ["bonjour","salut","yo","wesh","hey","hola","hello","hellow","ohayo","👋","coucou","pouet","cc","slt","wsh","bjr","pouet","koukou"]
 
 
 
 
 
 client.on('ready', function() {
-    console.log("prêt !")
-    client.channels.cache.get('798604848727326780').send(exampleEmbed = new Discord.MessageEmbed().setColor('#FFC0CB').setTitle('prêt !'))
+    console.log(`${client.user.username} est prêt !`)
+    client.channels.cache.get('798604848727326780').send(exampleEmbed = new Discord.MessageEmbed().setColor('#FFC0CB').setTitle(`${client.user.username} est prêt !`))
 })
 client.on('ready', () => {
     client.user.setPresence({ activity: { name: 'One Piece', type: 'WATCHING' }, status: 'dnd' })
@@ -130,18 +130,6 @@ client.on('message', message =>{
         }
     })
 })
-
-
-
-
-/*client.on("message", message => { // EventEmitter
-	if(message.content == "!ping"){ // Check if message is "!ping"
-			message.channel.send("Pinging ...") // Placeholder for pinging ... 
-			.then((msg) => { // Resolve promise
-				msg.edit("Ping: " + (Date.now() - msg.createdTimestamp) + "ms") // Edits message with current timestamp minus timestamp of message
-			});
-		}
-})*/
 
 
 
