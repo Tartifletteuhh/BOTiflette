@@ -20,12 +20,17 @@ module.exports = {
       } else {
           bot = "Non";
       }
-
-      if (activity.name === "Custom Status") {
+      console.log(activity)
+      if (activity) {
+        if (activity.name === "Custom Status") {
           activityName = "Rien"
+        } else {
+          activityName =  "🎮 " + activity.name
+        }
       } else {
-          activityName =  activity.name
+        activityName = "Rien"
       }
+      
       let embed = new MessageEmbed()
               .setColor('#FFC0CB')
               .setAuthor(member.user.username)
@@ -35,7 +40,7 @@ module.exports = {
               .addField("Surnom", `${member.nickname !== null ? `${member.nickname}` : "Aucun"}`, true)
               .addField("Bot", `${bot}`,inline, true)
               .addField("Statut", `${status[member.user.presence.status]}`, inline, true)
-              .addField("Joue à", `🎮 ${activityName}`,inline, true)
+              .addField("Joue à", `${activityName}`,inline, true)
               .addField("À rejoint discord le", member.user.createdAt)
               .setFooter(`Informations sur ${member.user.username}`)
               .setTimestamp()
