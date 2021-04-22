@@ -1,7 +1,7 @@
 const { MessageEmbed } = require('discord.js')
 
 module.exports = {
-  slash: 'both',
+  slash: false,
   description: "créateur, modifie mon humour !",
   minArgs: 1,
   expectedArgs: '<humour>',
