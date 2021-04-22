@@ -16,9 +16,7 @@ module.exports = {
     if (message) {
         if(message.author.bot) return
         tauxHumour = humour
-        message.channel.send('', { embed })
+        message.channel.send(embed)
     }
-
-    return embed
   },
 }
