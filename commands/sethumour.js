@@ -13,8 +13,8 @@ module.exports = {
     .setColor('#FFC0CB')
     .setTimestamp()
     
-    if(message.author.bot) return
     tauxHumour = humour
+    message.delete()
     message.channel.send(embed)
 
   },
