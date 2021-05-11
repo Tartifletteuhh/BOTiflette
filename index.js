@@ -17,7 +17,7 @@ const objTriggers = {
 var politesse = ["bonjour","salut","yo","wesh","hey","hola","hello","hellow","ohayo","👋","coucou","pouet","cc","slt","wsh","bjr","pouet","koukou"]
 
 
-
+//
 
 
 client.on('ready', function() {
