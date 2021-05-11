@@ -9,7 +9,7 @@ const client = new Discord.Client()
 
 
 global.tauxHumour = 25
-var chèque = 1000000
+var chèque = 10000
 const objTriggers = {
     triggers : ["oui","non","nan","quoi","comment","lol","wesh","hein","ah","cheh","bonjour","bon","yo","salut","wa"],
     réponses : ["stiti","si","si","feur","dent","ita","dene","2","tchoum","vre","au revoir","anniversaire :champagne: :partying_face:","plait","poilu","luigi https://cdn.discordapp.com/attachments/685603812781981730/833623730294226944/668183889583407109.png"]
@@ -107,7 +107,7 @@ client.on('message', message =>{
 
 
 
-    if(fonctions.proba(chèque, 5)) {
+    if(fonctions.proba(chèque, 1)) {
         message.react('🎟️')
         message.react('🍾')
         message.react('🎫')
@@ -117,8 +117,8 @@ client.on('message', message =>{
             .setColor('#FFC0CB')
             .setTitle('FÉLICITATIONS : TU AS TOUCHÉ LE CHÈÈÈÈÈÈÈQUE !!!!!!!!! 🥳🥳🥳🥳🥳🥳🥳🥳')
             .setImage('https://static.wikia.nocookie.net/battle-royal-1825-brcu/images/5/5d/Siphano_wiki_br.png/revision/latest/scale-to-width-down/310?cb=20200528132806&path-prefix=fr')
-            .setDescription('Cette jeune personne vient actuellement de toucher le chèque. Retrouvez toute son histoire, juste ici : https://www.latlmes.com/entertainment/il-touche-le-chque-dcouvrez-son-histoire-1'))
-            .setTimestamp()
+            .setDescription('Cette jeune personne vient actuellement de toucher le chèque. Retrouvez toute son histoire, juste ici : https://www.latlmes.com/entertainment/il-touche-le-chque-dcouvrez-son-histoire-1')
+            .setTimestamp())
         let url = message.url
         client.channels.cache.get('798604848727326780').send(exampleEmbed = new Discord.MessageEmbed().setColor('#FFC0CB').setTitle(`LE CHÈQUE : ${url}`))
     }
