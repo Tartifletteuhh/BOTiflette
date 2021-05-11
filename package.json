@@ -9,11 +9,13 @@
   "version": "1.0.0",
   "description": "Pas besoin de description :sunglasses:",
   "engines": {
-    "node": "14.16.1"
+    "node": "14.16.1",
+    "pwn": "6.14.12"
   },
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build"
   },
   "author": "Tartiflette",
   "license": "ISC"
