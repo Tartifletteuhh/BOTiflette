@@ -14,7 +14,7 @@ module.exports = {
         const embed = new MessageEmbed()
             .setTitle(`Information du serveur "${name}"`)
             .setThumbnail(icon)
-            .setColor('#FFC0CB')
+            .setColor('#CF8523')
             .addFields(
             {
                 name: 'Region',

@@ -32,7 +32,7 @@ module.exports = {
       }
       
       let embed = new MessageEmbed()
-              .setColor('#FFC0CB')
+              .setColor('#CF8523')
               .setAuthor(member.user.username)
               .setThumbnail(target.avatarURL())
               .addField("Pseudo complet", `${member.user.tag}`, inline)

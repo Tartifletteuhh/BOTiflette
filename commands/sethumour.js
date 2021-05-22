@@ -10,7 +10,7 @@ module.exports = {
     console.log(`Nouvelle valeur : ${tauxHumour}`)
     const embed = new MessageEmbed()
     .setTitle(`Nouvelle valeur : ${tauxHumour}`)
-    .setColor('#FFC0CB')
+    .setColor('#CF8523')
     .setTimestamp()
     
     tauxHumour = humour

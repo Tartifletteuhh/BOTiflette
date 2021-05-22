@@ -6,9 +6,9 @@ module.exports = {
   callback: ({ message }) => {
     console.log(`Mon humour est de valeur : ${tauxHumour}`)
     const embed = new MessageEmbed()
-    .setTitle(`Mon humour est de valeur : ${tauxHumour}`)
-    .setColor('#FFC0CB')
-    .setTimestamp()
+      .setTitle(`Mon humour est de valeur : ${tauxHumour}`)
+      .setColor('#CF8523')
+      .setTimestamp()
 
     if (message) {
         if(message.author.bot) return
