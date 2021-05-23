@@ -2,8 +2,6 @@ const { MessageEmbed } = require('discord.js')
 
 module.exports = {
     callback: ({message}) => {
-      console.log("infouser")
-
       let inline = true
       const status = {
         online: "Online",
