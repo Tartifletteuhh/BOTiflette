@@ -28,8 +28,6 @@ module.exports = {
     if (!arg) {
       blagueFunc(message, 'https://www.blagues-api.fr/api/random')
     } else {
-
-      if (arg === 'blondes') arg = 'blonde'
       
       if(fonctions.isLetter(arg)){
         if (arg !== 'global' && arg !== 'dev' && arg !== 'dark' && arg !== 'limit' && arg !== 'beauf' && arg !== 'blonde') {
@@ -37,6 +35,8 @@ module.exports = {
           return
         }
       }
+
+      if(arg === 'blonde') arg = 'blondes'
 
       switch (arg) {
 
