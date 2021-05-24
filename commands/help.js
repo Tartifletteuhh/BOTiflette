@@ -12,7 +12,7 @@ module.exports = {
             .addFields(
                 { name: 'Infos', value: '**!servinfo\n!userinfo** (user)' },
                 { name: 'Humour', value: "**!sethumour** <valeur> (⚠️Seulement utilisable par l'admin du bot !⚠️) \n**/ ou !varhumour** (permet de connaître la valeur d'humour du bot)" },
-                { name: 'Humour --> Blague', value: '**!blague** (ID ou catégorie)\nLes catégories sont : global, dev, dark, limit, beauf, blondes' },
+                { name: 'Humour --> Blague', value: '**!blague** (ID ou catégorie)\nLes catégories sont : global, dev, dark, limit, beauf, blonde' },
                 { name: 'Misc', value: '**!ping\n/ ou !hello\n/ ou !help**' }
             )
           .setTimestamp()
