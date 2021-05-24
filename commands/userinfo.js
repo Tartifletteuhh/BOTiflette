@@ -42,6 +42,7 @@ module.exports = {
               .addField("À rejoint discord le", member.user.createdAt)
               .setFooter(`Informations sur ${member.user.username}`)
               .setTimestamp()
+              .setThumbnail('https://cdn.discordapp.com/emojis/643895067664187433.png?v=1')
       
       message.channel.send(embed);
     }

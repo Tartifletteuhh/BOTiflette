@@ -12,6 +12,7 @@ module.exports = {
     .setTitle(`Nouvelle valeur : ${tauxHumour}`)
     .setColor('#CF8523')
     .setTimestamp()
+    .setThumbnail('https://cdn.discordapp.com/emojis/643895067664187433.png?v=1')
     
     tauxHumour = humour
     message.delete()

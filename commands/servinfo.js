@@ -15,6 +15,7 @@ module.exports = {
             .setTitle(`Information du serveur "${name}"`)
             .setThumbnail(icon)
             .setColor('#CF8523')
+            .setThumbnail('https://cdn.discordapp.com/emojis/643895067664187433.png?v=1')
             .addFields(
             {
                 name: 'Region',
