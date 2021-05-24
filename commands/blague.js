@@ -24,7 +24,7 @@ blagueFunc = (message, site) => {
 module.exports = {
   expectedArgs: '<arg>',
   callback: ({ message, args }) => {
-    const [arg] = args
+    var [arg] = args
     if (!arg) {
       blagueFunc(message, 'https://www.blagues-api.fr/api/random')
     } else {
