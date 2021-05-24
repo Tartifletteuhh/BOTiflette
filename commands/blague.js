@@ -29,14 +29,14 @@ module.exports = {
       blagueFunc(message, 'https://www.blagues-api.fr/api/random')
     } else {
 
+      if (arg === 'blondes') arg = 'blonde'
+      
       if(fonctions.isLetter(arg)){
-        if (arg !== 'global' && arg !== 'dev' && arg !== 'dark' && arg !== 'limit' && arg !== 'beauf' && arg !== 'blondes') {
+        if (arg !== 'global' && arg !== 'dev' && arg !== 'dark' && arg !== 'limit' && arg !== 'beauf' && arg !== 'blonde') {
           message.channel.send('Mauvais argument renseigné, recommence.')
           return
         }
       }
-
-      if(arg === 'blondes') arg = 'blonde'
 
       switch (arg) {
 
