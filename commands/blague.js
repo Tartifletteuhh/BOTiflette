@@ -10,7 +10,7 @@ blagueFunc = (message, site) => {
 
           const embed = new MessageEmbed()
             .setTitle(data.joke)
-            .setDescription(data.answer)
+            .setDescription('||'+data.answer+'||')
             .setFooter(`Catégorie : ${data.type} --- ID : ${data.id}`)
             .setColor('#CF8523')
             .setTimestamp()
