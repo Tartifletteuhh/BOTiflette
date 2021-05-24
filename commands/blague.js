@@ -35,6 +35,9 @@ module.exports = {
           return
         }
       }
+
+      if(arg === 'blondes') arg = 'blonde'
+
       switch (arg) {
 
         case 'global':
