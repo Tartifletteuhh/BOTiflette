@@ -60,7 +60,7 @@ module.exports = {
           blagueFunc(message, `https://www.blagues-api.fr/api/type/${arg}/random`)
           break
 
-        case 'blonde':
+        case 'blondes':
           blagueFunc(message, `https://www.blagues-api.fr/api/type/${arg}/random`)
           break
 
