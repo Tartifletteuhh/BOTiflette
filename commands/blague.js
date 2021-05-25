@@ -25,6 +25,9 @@ module.exports = {
   expectedArgs: '<arg>',
   callback: ({ message, args }) => {
     var [arg] = args
+
+    if (fonctions.chanelcours(message)) return
+
     if (!arg) {
       blagueFunc(message, 'https://www.blagues-api.fr/api/random')
     } else {
@@ -36,7 +39,7 @@ module.exports = {
         }
       }
 
-      if(arg === 'blonde') arg = 'blondes'
+      if (arg === 'blonde') arg = 'blondes'
 
       switch (arg) {
 
