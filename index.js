@@ -155,7 +155,7 @@ client.on('message', message => {
 
 
 client.on('messageDelete', (message) => {
-    if (!message.author || message.author.bot || message.mentions.users.size === 0) return
+    if (!message.author || message.author.bot || message.mentions.users.size === 0 || message.guild.id === '623628341940977674') return
     
     const embed = new Discord.MessageEmbed()
         .setColor('#CF8523')
