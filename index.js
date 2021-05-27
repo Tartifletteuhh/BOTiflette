@@ -140,10 +140,32 @@ client.on('message', message =>{
 
 
 client.on('message', message => {
+    if (message.mentions.has(client.user)) {
+       message.react('🙃')
+   }
+});
+
+
+
+client.on('message', message => {
     if(message.guild.id !== '776344402636439562') return
     if(message.content === 'https://gfycat.com/narrowcolorfullice') {
     message.delete()
 }})
 
+
+client.on('messageDelete', (message) => {
+    if (!message.author || message.author.bot || message.mentions.users.size === 0) return
+    
+    const embed = new Discord.MessageEmbed()
+        .setColor('#CF8523')
+        .setTitle('GhostPing détecté')
+        .setDescription(`Message :\n\n"${message.content}"`)
+        .addFields(
+            {name: 'Channel', value: message.channel},
+            {name: 'Auteur', value: message.author}
+    )
+    message.channel.send(embed)
+})
 
 client.login(process.env.token)
