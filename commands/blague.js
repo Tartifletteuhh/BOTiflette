@@ -23,6 +23,7 @@ blagueFunc = (message, site) => {
 
 module.exports = {
   expectedArgs: '<arg>',
+  cooldown: '5s',
   callback: ({ message, args }) => {
     var [arg] = args
 
