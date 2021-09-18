@@ -30,7 +30,7 @@ client.on('ready', () => {
 
 
 
-client.on('message', message => {
+client.on('message', async message => {
     if (message.author.id == 319929897021865985 || message.author.id == 418779371168464896) {
         try{
             const args = message.content.trim().split(/ +/g)
@@ -40,7 +40,6 @@ client.on('message', message => {
                 
                 if(message.mentions.members.first().id == 735477050579615754) {
 
-                    const list = message.guild.members
 
                     // find the role with the name "Community"
                     let role = message.mentions.roles.first()
@@ -50,7 +49,9 @@ client.on('message', message => {
                     if (!role) return message.channel.send(`**${message.author.username}**, role not found`)
         
                     // find all guild members that aren't bots, and add the "Community" role to each
-                    list.cache.forEach(member => member.roles.add(role)); 
+                    message.guild.members.fetch().then((members) => {
+                        members.forEach(member => member.roles.add(role))
+                    })
         
                     // notify the author of the command that the role was successfully added to all members
                     message.channel.send(`**${message.author.username}**, role **${role.name}** was added to all members`)
