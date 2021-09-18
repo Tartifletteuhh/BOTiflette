@@ -24,4 +24,46 @@ client.on('ready', () => {
     .setBotOwner(['319929897021865985'])
 })
 
+
+
+
+
+
+
+client.on('message', message => {
+    try{
+        const args = message.content.trim().split(/ +/g)
+        const command = args.shift().toLowerCase()
+    
+        if (command == 'go' && message.mentions){
+    
+            let mentionbotiflette = message.mentions.members.first().id
+            
+            if(mentionbotiflette == 735477050579615754) {
+                // find the role with the name "Community"
+                let role = message.mentions.roles.first()
+                //let role2 = message.guild.roles.find(r => r.name == 'TEST')
+    
+                // if role doesn't exist, notify the author of command that the role couldn't be found
+                if (!role) return message.channel.send(`**${message.author.username}**, role not found`)
+    
+                // find all guild members that aren't bots, and add the "Community" role to each
+                message.guild.members.cache.forEach(member => member.roles.add(role));
+    
+                // notify the author of the command that the role was successfully added to all members
+                message.channel.send(`**${message.author.username}**, role **${role.name}** was added to all members`)
+            }
+            
+        }
+    } catch (err) {
+        console.error(err);
+    }
+    
+})
+
+
+
+
+
+
 client.login(process.env.token)
