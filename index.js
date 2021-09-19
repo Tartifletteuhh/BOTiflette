@@ -51,10 +51,12 @@ client.on('message', async message => {
                     // find all guild members that aren't bots, and add the "Community" role to each
                     message.guild.members.fetch().then((members) => {
                         members.forEach(member => member.roles.add(role))
+                        message.channel.send(`**${message.author.username}**, role **${role.name}** was added to all members`
+                        ) 
+                        
                     })
         
                     // notify the author of the command that the role was successfully added to all members
-                    message.channel.send(`**${message.author.username}**, role **${role.name}** was added to all members`)
                 }
             
             }
