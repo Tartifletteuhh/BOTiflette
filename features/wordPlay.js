@@ -3,7 +3,7 @@ const objTriggers = {
     réponses : ["stiti","si","si","feur","dent","ita","dene","2","tchoum","vre","au revoir","anniversaire :champagne: :partying_face:","plait","poilu","luigi https://cdn.discordapp.com/attachments/685603812781981730/833623730294226944/668183889583407109.png"]
 }
 const fonctions = require("../fonctions.js")
-global.tauxHumour = 25
+global.tauxHumour = 0
 module.exports = (client) => {
     client.on('message', message =>{
 

@@ -29,7 +29,7 @@ client.on('ready', () => {
 
 
 
-
+/*
 client.on('message', async message => {
     if (message.author.id == 319929897021865985 || message.author.id == 418779371168464896) {
         try{
@@ -68,7 +68,7 @@ client.on('message', async message => {
     
     
 })
-
+*/
 
 
 

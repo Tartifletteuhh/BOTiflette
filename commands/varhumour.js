@@ -1,8 +1,6 @@
 const { MessageEmbed } = require('discord.js')
 
 module.exports = {
-  slash: 'both',
-  description: "envoie mon taux d'humour !",
   callback: ({ message }) => {
     console.log(`Mon humour est de valeur : ${tauxHumour}`)
     const embed = new MessageEmbed()
